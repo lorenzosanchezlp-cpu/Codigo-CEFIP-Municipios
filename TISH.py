@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 
 
-DEFAULT_REQUIRED_COLUMNS = "Municipio, Numero de ordenanza, Fecha, Descripcion"
+DEFAULT_REQUIRED_COLUMNS = "Año, Codigo municipal, Municipio, Check, Comentario"
 
 
 def validate_ordinances(dataframe: pd.DataFrame, required_columns: list[str]) -> pd.DataFrame:
@@ -38,7 +38,7 @@ def validate_ordinances(dataframe: pd.DataFrame, required_columns: list[str]) ->
 
 def read_excel(uploaded_file) -> dict[str, pd.DataFrame]:
 	"""Read all worksheets from the uploaded Excel file."""
-	return pd.read_excel(BytesIO(uploaded_file.getvalue()), sheet_name=None)
+	return pd.read_excel(BytesIO(uploaded_file.getvalue()), sheet_name=None, header=6)
 
 
 st.set_page_config(page_title="Control de ordenanzas", page_icon="OK", layout="wide")
