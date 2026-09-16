@@ -1,5 +1,4 @@
 """Aplicacion para revisar la informacion de ordenanzas municipales."""
-hola
 
 from io import BytesIO
 
